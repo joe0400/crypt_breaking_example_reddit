@@ -14,7 +14,7 @@ def main():
 	repetitions = 1
 	while(True):
 		for cart_prod in product(valid_chars, repeat=repetitions):
-			if(crypt(''.join(cart_prod)) == argv[1]):
+			if(crypt(''.join(cart_prod, salt)) == argv[1]):
 				print(Style.RESET_ALL + Fore.GREEN + ''.join(cart_prod),end="\r")
 				return 0
 			print(Style.BRIGHT + Fore.RED + ''.join(cart_prod),end="\r")
