@@ -1,7 +1,7 @@
 from sys import argv
 from crypt import crypt
 from itertools import product
-from colorama import Fore
+from colorama import Fore, Style
 
 def main():
 	if len(argv) != 2:
@@ -15,9 +15,9 @@ def main():
 	while(True):
 		for cart_prod in product(valid_chars, repeat=repetitions):
 			if(crypt(''.join(cart_prod)) == argv[1]):
-				print(Fore.GREEN + ''.join(cart_prod))
+				print(Style.RESET_ALL + Fore.GREEN + ''.join(cart_prod),end="\r")
 				return 0
-			print(Fore.RED + ''.join(cart_prod))
+			print(Style.BRIGHT + Fore.RED + ''.join(cart_prod),end="\r")
 		repetitions += 1
 
 main()
